@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/cifra-city/httpkit/problems"
+	"github.com/cifra-city/comtools/httpkit/problems"
 	"github.com/google/jsonapi"
 	"github.com/pkg/errors"
 )
