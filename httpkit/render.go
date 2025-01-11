@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/cifra-city/httpkit/problems"
 	"github.com/google/jsonapi"
 	"github.com/pkg/errors"
+	"github.com/recover-flow/comtools/httpkit/problems"
 )
 
 // Render encodes a successful response in JSON API format.
