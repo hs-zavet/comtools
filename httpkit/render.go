@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/jsonapi"
 	"github.com/pkg/errors"
-	"github.com/recover-flow/comtools/httpkit/problems"
+	"github.com/recovery-flow/comtools/httpkit/problems"
 )
 
 // Render encodes a successful response in JSON API format.

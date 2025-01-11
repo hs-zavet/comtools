@@ -1,4 +1,4 @@
-module github.com/recover-flow/comtools
+module github.com/recovery-flow/comtools
 
 go 1.23.1
 
