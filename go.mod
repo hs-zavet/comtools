@@ -1,4 +1,4 @@
-module github.com/recovery-flow/comtools
+module github.com/hs-zavet/comtools
 
 go 1.23.1
 

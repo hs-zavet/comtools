@@ -7,8 +7,8 @@ import (
 	"strconv"
 
 	"github.com/google/jsonapi"
+	"github.com/hs-zavet/comtools/httpkit/problems"
 	"github.com/pkg/errors"
-	"github.com/recovery-flow/comtools/httpkit/problems"
 )
 
 // Render encodes a successful response in JSON API format.

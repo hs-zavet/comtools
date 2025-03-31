@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/recovery-flow/comtools/httpkit/problems"
+	"github.com/hs-zavet/comtools/httpkit/problems"
 )
 
 // visitor хранит данные о запросах конкретного пользователя
