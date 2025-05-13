@@ -22,13 +22,17 @@ func Render(w http.ResponseWriter, res interface{}) {
 
 func RenderErr(w http.ResponseWriter, errs ...*jsonapi.ErrorObject) {
 	if len(errs) == 0 {
-		RenderErr(w, problems.InternalError())
+		RenderErr(w, problems.Error(problems.ErrorInput{
+			Status: http.StatusInternalServerError,
+		})...)
 		return
 	}
 
 	status, err := strconv.Atoi(errs[0].Status)
 	if err != nil {
-		RenderErr(w, problems.InternalError())
+		RenderErr(w, problems.Error(problems.ErrorInput{
+			Status: http.StatusInternalServerError,
+		})...)
 		return
 	}
 
