@@ -9,25 +9,25 @@ import (
 
 type ErrorInput struct {
 	// Unique identifier for the error
-	ErrorID string
+	ErrorID *string
 
 	// Unique identifier for the request (correlation ID)
-	RequestID string
+	RequestID *string
 
 	// HTTP status code applicable to this problem, as a string ("400", "500" и т.д.)
 	Status int
 
 	// Application-specific error code
-	Code string
+	Code *string
 
 	// Short, human-readable summary (title) of the problem
-	Title string
+	Title *string
 
 	// Detailed explanation of this occurrence of the problem
-	Detail string
+	Detail *string
 
 	// JSON Pointer to the value in the request document that caused the error
-	Pointer string
+	Pointer *string
 }
 
 func Error(input ErrorInput) []*jsonapi.ErrorObject {
@@ -39,21 +39,33 @@ func Error(input ErrorInput) []*jsonapi.ErrorObject {
 		"timestamp": now,
 	}
 
-	if input.RequestID != "" {
+	if input.RequestID != nil {
 		(*meta)["request_id"] = input.RequestID
 	}
 
-	if input.Pointer != "" {
+	if input.Pointer != nil {
 		(*meta)["pointer"] = input.Pointer
 	}
 
 	eo := &jsonapi.ErrorObject{
-		ID:     input.ErrorID,
 		Status: statusStr,
-		Code:   input.Code,
-		Title:  input.Title,
-		Detail: input.Detail,
 		Meta:   meta,
+	}
+
+	if input.ErrorID != nil {
+		eo.ID = *input.ErrorID
+	}
+
+	if input.Code != nil {
+		eo.Code = *input.Code
+	}
+
+	if input.Title != nil {
+		eo.Title = *input.Title
+	}
+
+	if input.Detail != nil {
+		eo.Detail = *input.Detail
 	}
 
 	return []*jsonapi.ErrorObject{eo}
